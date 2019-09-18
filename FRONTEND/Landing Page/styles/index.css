@@ -1,0 +1,59 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+.container-fluid{
+    height: 100vh;
+}
+.brand-logo{
+    height: 8vh;
+    width: 8vh;
+    background: #F4BF02;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+.brand-logo h1{
+    font-size: 30px;
+    font-weight: bolder;
+    letter-spacing: -4px;
+}
+.index-nav-tabs a{
+    font-size: 14px;
+    font-weight: 900;
+    color: black !important;
+}
+.landing-full{
+    height: 83vh;
+}
+.landing-desc div{
+    margin-top: 20vh;
+}
+.landing-desc h4{
+    font-weight: 900;
+}
+.landing-desc h3{
+    font-weight: 900;
+    color: #F4BF02;
+}
+.start-now-btn{
+    background: #F4BF02;
+    color: black;
+    width: 17vw;
+    border-radius: 20px;
+    font-weight: 900;
+}
+.image-con{
+    height: 70vh;
+}
+.image-con img{
+    height: 100%;
+    width: 100%;
+}
+footer{
+    height: 3.7vh;
+    background: #F4BF02;
+    border: 1px solid black;
+}
+footer span{
+    font-weight: 900;
+    font-size: 12px;
+}

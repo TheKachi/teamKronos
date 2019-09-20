@@ -1,12 +1,18 @@
 # HNG 6.0 Internship
-Task 2 - Creation of a Complete Login System, equipped with a signup page.
+Task 2 - Creation of a Complete Login System, equiped with a signup page.
 This project was designed and created by Team Kronos. 
 
 # BitLender
-This is a BitLender login and registration page
+BitLender is an online, peer-to-peer lending platform that helps individals save for that project or vacation. 
 
 # About Project
-BitLender is an online, peer-to-peer lending platform that helps individals save for that project or vacation. 
+This is a BitLender login and registration page. At start, visitors are directed to a login page that prompts them to input their login details. Once the login detail or visitors correlates wit that found on the mysqli database, they are logged i and redirected to a landng page. New visitors (those whose details are not found in the database) are redirected to a registratiohn page.
+
+# Tools Used
+During the creation of the project, the major lang used was PHP and MYSQLi. Javascript was used to test the users auntheticationh nto the backend.
+
+## App Host
+After completion of the project, the app ws hosted on Heroku.
 
 
 

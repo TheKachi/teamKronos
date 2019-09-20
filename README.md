@@ -12,7 +12,7 @@ This is a BitLender login and registration page. At start, visitors are directed
 During the creation of the project, the major lang used was PHP and MYSQLi. Javascript was used to test the users aunthetication at the frontend.
 
 ## App Host
-After completion of the project, the app ws hosted on Heroku.
+After completion of the project, the app ws hosted on Heroku. Furthmore, code was refactored to an API base and hosted on a shared hostig platform which can be found <a href = "http://junicodefire-private.000webhostapp.com/">here</a>
 
 ## Contributing
 This app can be run locally using serve applications such as XAMPP (for windows systems ) or MAPP (for Mac systems). To run and test the application, kindly download XAMPP from https://www.apachefriends.org/ or MAPP from https://www.mamp.info/en/. Installation process can be got from https://wpshout.com/quick-guides/how-to-install-mamp-on-your-mac/ OR  https://pureinfotech.com/install-xampp-windows-10/. Kindly note that the databas has to be imported to the server with the name "hng_loginsystem" to avoid errors when connecting to the database.

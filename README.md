@@ -1,6 +1,6 @@
 # HNG 6.0 Internship - Task 2
 Task 2 - Creation of a Complete Login System, equiped with a signup page.
-This project was designed and created by ## teamKronos. 
+This project was designed and created by teamKronos. 
 
 # BitLender
 BitLender is an online, peer-to-peer lending platform that helps individals save for that project or vacation. 

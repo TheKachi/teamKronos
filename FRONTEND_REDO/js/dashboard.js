@@ -18,7 +18,8 @@ if(user.token) {
             }
         };
         $.ajax(settings).done(function (response) {
-            const {ok, user} = JSON.parse(response);
+            const {ok, message, user} = JSON.parse(response);
+            console.log(user, message);
         }).fail(function (err) {
            //Redirect to login page there is any sort of error
            if(err){

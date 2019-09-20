@@ -1,11 +1,16 @@
 <?php
 //require the connection
 require 'dbhand.php';
-
 $headers = apache_request_headers();
+error_reporting(0);
+
 if($headers["key"] == "verifying_user") {
     //Get the bearer token and check if the user is part of use
-    $bearer_token =  $headers["Authourization"];
+    if($headers["Authourization"]) {
+        $bearer_token = $headers["Authourization"];
+    }else if ( $headers["authourization"]){
+        $bearer_token = $headers["authourization"];
+    }
     //explode the bearer tpken to an arrray to get the token 
     $filter_token = explode(" ", $bearer_token);
     $token = $filter_token[1];

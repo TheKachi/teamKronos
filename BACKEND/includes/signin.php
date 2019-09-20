@@ -1,24 +1,25 @@
 <?php
-session_start();
-if (isset($_POST['signin-submit'])) {
 
     require 'dbhand.php';
 
-    $prermit = $_POST['userpermit'];
-    $pwd      = $_POST['pwd'];
+    $prermit = $_POST['user_permit'];
+    $pwd      = $_POST['password'];
+
+    $message = '';
+    
+    $ok = false;
+    $user = null;
 
     if (empty($prermit) || empty($pwd)) {
-        header("Location: ../../FRONTEND/signin.php?error=true&message=Fields cannot be empty!&prermit= $prermit");
-        exit();
-    }
-    else {
+        $statusCode = http_response_code(422);
+        $message .= 'Fields cannot be empty!';
+    }else {
         $sql = "SELECT * FROM users WHERE username=? OR email=?";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("Location:  ../../FRONTEND/signin.php?error=true&message=An unexpected error occured, please try again!&username=$prermit");
-            exit();
-        }
-        else {
+            $statusCode = http_response_code(500);
+            $message .= 'An unexpected error occured, please try again!';
+        }else {
             mysqli_stmt_bind_param($stmt, "ss", $prermit, $prermit);
             mysqli_stmt_execute($stmt);
             $result_set = mysqli_stmt_get_result($stmt);
@@ -26,18 +27,27 @@ if (isset($_POST['signin-submit'])) {
             $result = $result_set->fetch_assoc();
             if($result != null) {
                 if(password_verify($pwd, $result['pwd'])){
-                    $_SESSION['id'] = $result['id']; //Insert the username into session
-                    $_SESSION['fullname'] = $result['fullname']; // insert the fullname into session
-                    $_SESSION['username'] = $result['username']; //Insert the username into session
-                    $_SESSION['email'] = $result['email']; // insert the email into session
-                    header("Location:  ../../FRONTEND/dashboard.php?success=true");
-                    exit();
+                    $ok = true;
+                    $statusCode = http_response_code(200);
+                    $message .= 'Successfully logged in!';
+                    unset($result['pwd']);
+                    $user = $result;
                 }else {
-                    header("Location:  ../../FRONTEND/signin.php?error=true&message=Invalid credential details!&permit=$prermit");
-                    exit();
+                    $statusCode = http_response_code(401);
+                    $message .= 'Invalid credential details!';
                 }
+            }else {
+                $statusCode = http_response_code(404);
+                $message .= 'User not found!';
             }
         }
     }
 
-}
+// output a response
+echo json_encode(array(
+    "ok" => $ok,
+    "statusCode" => $statusCode,
+    "message" => $message,
+    "user" => $user
+  ));
+  

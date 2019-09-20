@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="styles/style.css">
+      <title>BitLender | Sign Up</title>
+  </head>
+  <body>
+        <div id="signup-box">
+            <div class="reg-content">
+                <div class="Reg-box-content">
+                        <img class="ellipse-image2" src="images/Ellipse.png" alt="ellipse image">
+                        <img class="ellipse-image2 B-image2" src="images/B.png" alt="letter B-image">
+                        <img class="ellipse-image2 L-image2" src="images/L.png" alt="Letter L-image">
+                    <h1 id="regname">BitLender</h1>
+                    <P id="paragraph3">The best, online, peer-to-peer lending platform that<br> offers the most affordable interest rate.</P>
+                    <form  id="sign-up-form" class="signup-form" action="../BACKEND/includes/signup.php" method="post">
+                        <input type="text" id="fullname" placeholder="firstname lastname" value="" >
+                        <p class="error_field">Password is incorrect</p>
+                        <input type="text" id="username" placeholder="username" minlength="2" maxlength="15"  value="" >
+                        <p class="error_field">Password is incorrect</p>
+                        <input type="email" id="email" placeholder="email" value="" >
+                        <p class="error_field">Password is incorrect</p>
+                        <input type="password"  id="password" placeholder="enter password" >
+                        <p class="error_field">Password is incorrect</p>
+                        <input type="password"  id="repeat-password" placeholder="retype password" >
+
+                        <input type="submit" class="submit-btn" name="signup-submit" value="Sign Up">
+                        <a class="access_link" href="signin.html">Already have an account? SignIn</a>
+                    </form>
+                </div>
+            </div>
+        </div><br>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+        <script src="js/jquery.min.js"></script>
+        <script type="module" src="js/signup.js"></script>
+    </body>
+  </html>
+ 

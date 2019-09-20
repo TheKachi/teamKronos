@@ -1,0 +1,400 @@
+*{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+    
+}
+a {
+  text-decoration: none;
+}
+
+.intro h1{
+  margin-top: 5px;
+}
+.access_link {
+  color: black;
+  font-size: 15px;
+}
+.error_field {
+  color: red;
+  margin: 0;
+  font-size: 10px;
+  display: none;
+}
+body{
+  max-width: 400%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #efefef;
+  font-size: 16px;
+  color: #777;
+  font-family: sans-serif;
+  font-weight: 300;
+}
+/* Formatting the login-box start here*/
+
+#login-box{
+  max-width: 400%;
+  position: relative;
+  width: 834px;
+  height: 539px;
+  margin: 1% auto;
+  background: #FEFEFE;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 26px;
+  box-shadow: 0 2px 4px rgba(0, 0,0 ,6);
+}
+
+/* Formatting the Register page or the left-box begins here*/
+.left-box{
+  position: absolute;
+  width: 505px;
+  height: 539px;
+  background: url(../images/Loan-image.png), linear-gradient(180deg, #D19011 0%, rgba(164, 111, 10, 0) 100%);
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 23px;
+
+}
+
+.left-box-content {
+  position: absolute;
+  top: 180px;
+  left: 50px;
+  width: 400px;
+  height: 400px; 
+}
+
+h1#loginname {
+  margin: 0 0 20px 0;
+  width: 400px;
+  text-align: center;
+  color: #000000;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 49px;  
+}
+
+p#paragraph1{
+  width: 400px;
+  height: 32px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #000000;
+}
+
+.Reg-button{
+display: block;
+margin: auto;
+margin-top: 20px;
+width: 193px;
+height:57px;
+background: #000000;
+border: 2px solid #FFFFFF;
+box-sizing: border-box;
+border-radius: 35px;
+font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 20px;
+line-height: 24px;
+text-align: center;
+color: #FFFDFD;
+cursor: pointer;
+}
+
+.Reg-button:hover,
+.Reg-button:focus {
+  background: #2e2d2d;
+  transition: 0.2s ease;
+}
+
+/* Formatting the Register page or the left-box begins here*/
+
+/*Formatting the sign in page /right-box begins here*/
+
+.right-box{
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 40px; 
+  width: 329px;
+  height: 500px;  
+}
+
+.right-box-content{
+  position: absolute;
+  top: 55px;
+  left: 50px;
+  width: 329px;
+  height: 329px;
+}
+
+/* For the ellispe Shape formatting on the Sign in Page*/
+.ellipse-image{
+  position: relative;     
+  margin: 0 0 10px 80px;
+}
+.B-image{
+  position: inherit;
+  margin: 23px 0 0 -52px;
+}
+
+.L-image{
+  position: inherit;
+  margin: 23px 0 0 -30px;
+}
+
+input[type="text"], input[type="password"] {
+  display: block;
+  box-sizing: border-box;
+  margin-top: 25px;
+  padding: 4px;
+  width: 220px;
+  height: 32px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #aaa;
+  font-family: sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2s ease;       
+}
+
+#login-box input[type="text"]:hover, #login-box input[type="password"]:hover{
+  -webkit-transition: border-color 0.3s ease-in-out;
+  -moz-transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  border: 1.3px solid rgb(107, 214, 214);
+}
+input#user1 {
+  background-image: url(../images/name.png);
+  padding: 0.1em;
+  background-size:contain;
+  background-repeat: no-repeat;
+  text-indent: 30px;
+}
+input#user1:focus {
+  background-image:none;
+  text-indent:0px
+  }
+
+input#psw1 {
+      background-image: url(../images/password.png);
+      background-size:contain;
+      padding: 0.1em;
+      background-repeat: no-repeat;
+      text-indent: 30px;
+  }
+input#psw1:focus {
+      background-image:none;
+      text-indent:0px
+      }
+
+.signin-button {
+  display: block;
+  margin:  30px 15px;
+  width: 204px;
+  height: 42px;
+  background: #FBD960;
+  border: 2px solid #000000;
+  border-radius: 50px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold 0.2em;
+  font-size: 16px;
+  line-height: 18px;
+  text-transform: unset;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.signin-facebook{
+  display: block;
+  margin:  30px 15px;
+  width: 204px;
+  height: 42px;
+  background: #F4BF02;
+  border: 2px solid #000000;
+  border-radius: 50px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  text-transform: unset;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.signin-button:hover, 
+.signin-button:focus,
+.signin-facebook:hover,
+.signin-facebook:focus {
+  background: rgb(223, 175, 5);
+  transition: 0.2s ease;
+}
+
+h5#forgotpassword{
+  width: 400px;
+  height: 30px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 15px;
+/* identical to box height */
+  text-align: center;
+  color: #000000;
+  cursor: pointer;
+}
+
+h5#forgotpassword:hover{
+  color: #75430a;
+}
+p#paragraph2{
+  width:  300px;
+  height: 36px;
+  margin: 10px 0 30px -32px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  color: #000000;
+}
+/*Formatting the sign in page /right-box stops here*/
+
+/* For the signUp or registration Page*/
+
+#signup-box{
+  max-width: 500px;
+    position: relative;
+    height: 539px;
+    margin: 5% auto;
+  background: #FEFEFE;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 26px;
+  box-shadow: 0 2px 4px rgba(0, 0,0 ,6);
+  background: url(../images/Loan-image.png), linear-gradient(180deg, #D19011 0%, rgba(164, 111, 10, 0) 100%);
+}
+.Reg-box-content{
+  position: absolute;
+  top: 29px;
+  left: 145px;
+  width: 300px;
+  height: 329px;
+}
+
+/*Formatting the ellispe-image for the registration page*/
+
+.ellipse-image2{
+  position: relative;     
+  margin: 0 0 10px 76px;
+}
+.B-image2{
+  position: inherit;
+  margin: 23px 0 0 -52px;
+}
+
+.L-image2{
+  position: inherit;
+  margin: 23px 0 0 -30px;
+}
+/*Formatting the ellispe-image for the registration page ends here*/
+
+#regname {
+  margin: -30px 0 5px 60px;
+  width: 300px;
+  color: #000000;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 49px;  
+}
+
+p#paragraph3{
+  width: 500px;
+  height: 32px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  margin: 0 0 15px -150px;
+  color: #000000;
+}
+
+#signup-box input[type="text"], #signup-box input[type="password"], #signup-box input[type="email"] {
+  display: block;
+  box-sizing: border-box;
+  margin-top: 15px;
+  padding: 4px;
+  width: 220px;   
+  height: 32px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid rgb(75, 69, 69);
+  font-family: sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2s ease;  
+}
+#signup-box input[type="text"]:hover, #signup-box input[type="email"]:hover, #signup-box input[type="password"]:hover{
+  -webkit-transition: border-color 0.3s ease-in-out;
+  -moz-transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  border: 1.3px solid rgb(107, 214, 214);
+}
+
+/* Formatting Submit-button begins here */
+.submit-btn{
+  display: block;
+  margin:  20px 8px;
+  width: 204px;
+  height: 42px;
+  background: #FBD960;
+  border: 2px solid #000000;
+  border-radius: 50px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 18px;
+  text-transform: unset;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.submit-btn:hover, 
+.submit-btn:focus {
+  background: rgb(223, 175, 5);
+  transition: 0.2s ease;
+}
+/*Dashboard */
+.dashbord {
+  background: url(../images/hurray.gif) center #fff no-repeat;
+  width: 50%;
+  margin: auto;
+  height: 500px;
+  background-size: 50%, 50%;
+}
+@media(max-width: 768px){
+  .error_field {
+    width: 90%;
+  }
+}

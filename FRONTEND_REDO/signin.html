@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="styles/style.css">
+      <title>BitLender | Sign In</title>
+  </head>
+  <body>
+        <div class="_error" style=" margin-top:10px;">
+            <div class='error_field'> <br> Please the user is not found </div>
+        </div>
+        <div id="login-box">
+                <div class="left-box">
+                    <div class="left-box-content">
+                        <h1 id="loginname">BitLender</h1>
+                        <P id="paragraph1">The best, online, peer-to-peer lending platform that <br>offers the most affordable interest rate.</P>
+        
+                        <a href="signup.html" ><button class="Reg-button">Register</button></a>
+                    </div>    
+                </div>
+
+                <div class="right-box">
+                    <div class="right-box-content">
+                            <img class="ellipse-image" src="images/Ellipse.png" alt="ellipse image">
+                            <img class="ellipse-image B-image" src="images/B.png" alt="letter B-image">
+                            <img class="ellipse-image L-image" src="images/L.png" alt="Letter L-image">
+                            <P id="paragraph2">Welcome back, BitLender!<br> Kindly login to access your account.</P>
+                            <form id="sign-in-form" action="../BACKEND/includes/signin.php" method="post">
+                              <input type="text" id="user1" name="userpermit" placeholder="Username/Email.." value="" required >
+                              <p class="error_field">Password is incorrect</p>
+                              <input type="password" id="psw1"  name="pwd" placeholder="Password" required >  
+                              <p class="error_field">Password is incorrect</p>                        
+                              <button class="submit-btn" type="submit" name="signin-submit">Signin</button>
+                            </form> 
+                            <button class="signin-facebook">Login via Facebook</button>
+
+                            <h5 id="forgotpassword" >Forgot password</h5>
+                    </div>
+                </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+        <script src="js/jquery.min.js"></script>
+        <script type="module" src="js/signin.js"></script>
+</body>
+</html>

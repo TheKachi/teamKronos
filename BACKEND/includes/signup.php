@@ -1,45 +1,46 @@
 <?php
 
-if (isset($_POST['signup-submit'])) {
-
   require 'dbhand.php';
 
-  $fullname    = $_POST['fullname'];
-  $username = $_POST['userid'];
+  $fullname  = $_POST['fullname'];
+  $username = $_POST['username'];
   $email    = $_POST['email'];
   $pwd      = $_POST['password'];
-  $pwdRepeat = $_POST['repeat-password'];
+  $pwdRepeat = $_POST['repeat_password'];
 
+  $message = '';
+  
+  $ok = false;
   if (empty($fullname) || empty($username)  || empty($email) || empty($pwd)) {
-    header("Location: ../../FRONTEND/signup.php?error=true&message=Fields cannot be empty!&fullname=$fullname&username=$username&email=$email");
-    exit();
+    $statusCode = http_response_code(422);
+    $message .= 'Fields cannot be empty!';
   }
   elseif (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)) {
-    header("Location:  ../../FRONTEND/signup.php?error=true&message=Email format is not allowed!&fullname=$fullname&username=$username&email=$email");
-    exit();
+    $statusCode = http_response_code(422);
+    $message .= 'Email format is not allowed!';
   }
   elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    header("Location:  ../../FRONTEND/signup.php?error=true&message=Email is invalid, please check mail and try again!&fullname=$fullname&username=$username&email=$email");
-    exit();
+    $statusCode = http_response_code(422);
+    $message .= 'Email is invalid, please check mail and try again!';
   }
   elseif (!preg_match("/^[a-zA-Z ]*$/", $fullname)) {
-    header("Location:  ../../FRONTEND/signup.php?error=true&message=Username format is not allowed, pleas use only (a-zA-Z0-9)!&fullname=$fullname&username=$username&email=$email");
-    exit();
+    $statusCode = http_response_code(422);
+    $message .= 'Name format is not allowed please use only (a-zA-Z0-9)!';
   }
   elseif (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
-    header("Location:  ../../FRONTEND/signup.php?error=true&message=Username format is not allowed, pleas use only (a-zA-Z0-9)!&username=$username&email=$email");
-    exit();
+    $statusCode = http_response_code(422);
+    $message .= 'Username format is not allowed, please use only (a-zA-Z0-9)!';
   }
   elseif ($pwd !== $pwdRepeat) {
-    header("Location:  ../../FRONTEND/signup.php?error=true&message=Password does not match!&fullname=$fullname&username=$username&email=$email");
-    exit();
+    $statusCode = http_response_code(422);
+    $message .= 'Password does not match!';
   }
   else {
       $sql = "SELECT * FROM users WHERE username=?";
       $stmt = mysqli_stmt_init($conn);
       if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("Location:  ../../FRONTEND/signup.php?error=true&message=An unexpected error occured, please try again!&fullname=$fullname&username=$username&email=$email");
-        exit();
+        $statusCode = http_response_code(500);
+        $message .= 'An unexpected error occured, please try again!';
       }
       else {
       mysqli_stmt_bind_param($stmt, "s", $username);
@@ -47,27 +48,36 @@ if (isset($_POST['signup-submit'])) {
       mysqli_stmt_store_result($stmt);
       $resultCheck = mysqli_stmt_num_rows($stmt);
       if ($resultCheck > 0) {
-        header("Location: ../../FRONTEND/signup.php?error=true&message=Username or email has been taken, please use another!&fullname=$fullname&username=$username&email=$email");
-        exit();
+        $statusCode = http_response_code(401);
+        $message .= 'Username or email has been taken, please use another!';
       }
       else {
 
-        $sql = "INSERT INTO users (fullname, username, email, pwd) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO users (fullname, username, email, pwd, token, created) VALUES (?, ?, ?, ?, ?, NOW())";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-          header("Location:  ../../FRONTEND/signup.php?error=true&message=An unexpected error occured, please try again!&fullname=$fullname&username=$username&email=$email");
-          exit();
+          $statusCode = http_response_code(500);
+          $message .= 'An unexpected error occured, please try again!';
         }
         else {
           $hash_pass = password_hash($pwd, PASSWORD_DEFAULT);
-          mysqli_stmt_bind_param($stmt, "ssss", $fullname, $username, $email, $hash_pass);
+          //generate token for user permit
+          $token = crypt($fullname.$username.$email, '$5$rofgfgs3%*%45090$uwdfefhsd8543m3d3o78dj8salt$');
+          mysqli_stmt_bind_param($stmt, "sssss", $fullname, $username, $email, $hash_pass, $token);
           mysqli_stmt_execute($stmt);
           mysqli_stmt_store_result($stmt);
-          header("Location:  ../../FRONTEND/signin.php?success=true&message=Account Created succesfully!&process=Sign in to continue!");
-          exit();
+          // set response code
+          $ok = true;
+          $statusCode = http_response_code(201);
+          $message .= 'Account Created succesfully!';
         }
     }
   }
 }
 
-}
+echo json_encode(array(
+  "ok" => $ok,
+  "statusCode" => $statusCode,
+  "message" => $message
+));
+

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2019 at 02:53 PM
+-- Generation Time: Sep 20, 2019 at 01:51 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -33,16 +33,17 @@ CREATE TABLE `users` (
   `fullname` varchar(255) NOT NULL,
   `username` varchar(191) NOT NULL,
   `email` varchar(191) NOT NULL,
-  `pwd` varchar(191) NOT NULL
+  `pwd` varchar(191) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `fullname`, `username`, `email`, `pwd`) VALUES
-(2, 'Okechukwu Obi', 'okechu', 'junicodefire@gmail.com', '$2y$10$NGHLhHd3KIMsmmXYL8aRu.jTZyn9EDDvRb2Cxo6V1OFM/GGH0CDU.'),
-(7, 'Ogadi ', 'junico', 'junipreach2017@gmail.com', '$2y$10$DupHLydHHoDjo7uwSOwThOIqGtm1Q3RasTM5aBEaCyGPx8CHOC9tS');
+INSERT INTO `users` (`id`, `fullname`, `username`, `email`, `pwd`, `token`, `created`) VALUES
+(19, 'Okechukwu obi', 'junicodefire', 'junicodefire@gmail.com', '$2y$10$BERkSC.eZ9YvofuD.JsO3.CDYY/WjSHhATUSQshwJi1QiDJNV8or2', '$5$rofgfgs3%*%45090$hyfO5HUiQrLi/.z4q.M2HW0lh1gMHNoGQohnOyt5hED', '2019-09-20');
 
 --
 -- Indexes for dumped tables
@@ -62,7 +63,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(191) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(191) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
